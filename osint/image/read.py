@@ -19,14 +19,12 @@ def extract_GPSInfo(dictionary):
     long = decimal_degree_coordinates(long_degree, long_minutes, long_seconds, long_ref)
     return lat, long
 
-def exif(filename):
+def exif(filepath):
     '''
     EXIF stands for Exchangeable Image File format
-    Input: filename (it should be inside data folder)
+    Input: filepath
     Output: dictionary of EXIF data
     '''
-    filepath = f'data/{filename}'
-    
     try:
         img = Image.open(filepath)
     except FileNotFoundError:
@@ -34,7 +32,7 @@ def exif(filename):
         return None
     
     if img._getexif() == None:
-        print(f'{filename} contains no EXIF data')
+        print(f'{filepath} contains no EXIF data')
         return None
     else:
         data = {TAGS.get(tag): value for tag, value in img._getexif().items()}
