@@ -1,3 +1,3 @@
 from .image import *
-from .kyc import *
+from .api import *
 from .bot import *

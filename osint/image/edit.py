@@ -6,7 +6,7 @@ from PIL import Image
 # People whose code helped me write this code
 # David Bombal: https://github.com/davidbombal/red-python-scripts/blob/main/remove_exif.py
 
-def metadata(filepath, new_filename):
+def metadata(filepath: str, new_filename: str):
     '''
     Input: filepath
     Output: image without EXIF data (inside output folder)
